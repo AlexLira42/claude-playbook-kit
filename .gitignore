@@ -1,0 +1,6 @@
+# Your own filled playbook and its review queue — never share
+agent-playbook.md
+pending-playbook-updates.md
+
+# OS noise
+.DS_Store
