@@ -18,6 +18,8 @@ The mechanism is two small hooks + one behavior rule + a playbook file you fill 
 
 No dependencies beyond `bash` and Python 3 stdlib.
 
+> **Hooks vs rule — they load differently.** The two `scripts/*.sh` are *hooks* (code) that Claude Code runs on `UserPromptSubmit` / `Stop` events, wired via `settings.json`. The `rules/agent-session-ritual.md` is a *rule* (text) that Claude Code **auto-loads into context** from `~/.claude/rules/*.md` at session start — no `CLAUDE.md` needed, nothing to "run". Just drop the file in `~/.claude/rules/` and restart.
+
 ## Install
 
 See [INSTALL.md](INSTALL.md) (4 steps, in Russian). In short:
