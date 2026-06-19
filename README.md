@@ -9,6 +9,35 @@ The mechanism is two small hooks + one behavior rule + a playbook file you fill 
 
 > 🇷🇺 Версия на русском: [README.ru.md](README.ru.md)
 
+## Why
+
+Claude Code does **not** remember your past sessions. Every time it starts from scratch: same rakes, same "our deploy doesn't work that way", same mistakes you already fixed once.
+
+The playbook fixes that. You record a solution in a card once — and Claude then **pulls it in by itself** whenever a similar task comes up.
+
+**Example. Before → after:**
+
+> **Without a playbook.** You ask to deploy a service. Claude confidently deploys via Railway. But you moved to GitLab CI long ago — the deploy misses, you waste time rolling back and explaining. Every single time.
+>
+> **With a playbook.** After the first such case you add a card:
+> ```
+> ## C7 — Deploy goes to the wrong place (Railway instead of GitLab CI)
+> Tags: `deploy` `gitlab-ci` `railway`
+> - Problem: Claude deploys via Railway, but the project is on GitLab CI.
+> - Fix: Deploy only by pushing to master → GitLab CI. Railway is legacy.
+> ```
+> Next time, on the word "deploy", Claude sees this card and does it right immediately. No need to re-explain.
+
+The longer you use it, the smarter it gets for your context.
+
+## Who it's for (and when)
+
+Honestly: **it's an investment, not out-of-the-box magic.**
+
+- ✅ **Pays off** if you use Claude Code regularly (weeks+) and notice recurring tasks/mistakes.
+- ⏳ **Delayed value.** On install day the playbook is **empty** — no cards yet, nothing to pull. Value grows as you add cards.
+- 🟡 **New to Claude Code?** You can install it early "for the future", but you'll feel the effect once you've accumulated ~5–10 cards, not on day one.
+
 ## How it works
 
 1. **`UserPromptSubmit` hook** (`scripts/playbook-lookup.sh`) — on every prompt, scans your playbook and injects up to 3 matching cards as context. Matching is keyword-based against each card's title, `Tags:`, and `Problem:` lines.
