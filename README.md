@@ -22,7 +22,9 @@ No dependencies beyond `bash` and Python 3 stdlib.
 
 ## Install
 
-See [INSTALL.md](INSTALL.md) (4 steps, in Russian). In short:
+**Fastest way:** hand the repo to Claude Code and let it install itself — copy the prompt from [SETUP_PROMPT.md](SETUP_PROMPT.md).
+
+**Manual:** see [INSTALL.md](INSTALL.md) (4 steps, in Russian). In short:
 
 ```bash
 mkdir -p ~/.claude/scripts ~/.claude/rules

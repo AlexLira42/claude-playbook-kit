@@ -22,7 +22,9 @@
 
 ## Установка
 
-Подробно — в [INSTALL.md](INSTALL.md) (4 шага). Кратко:
+**Самый быстрый способ:** отдай репозиторий Claude Code, и он установит kit сам — скопируй промпт из [SETUP_PROMPT.md](SETUP_PROMPT.md).
+
+**Вручную:** подробно — в [INSTALL.md](INSTALL.md) (4 шага). Кратко:
 
 ```bash
 mkdir -p ~/.claude/scripts ~/.claude/rules
